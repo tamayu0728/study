@@ -8,23 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var mainText: UITextField!
-    @IBAction func tap(sender: AnyObject) {
-        
-    }
+class ViewController: UIViewController{
+    
+    var titleArray:[String] = ["大吉","吉","中吉","小吉","末吉","凶"]
+    var messageArray = ["すげーいい","結構いい","まあいい","いい","ぎりいい","だめ"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated:false) //ステータスバーの透明化
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func tapAlert(sender: AnyObject) {
+        var randNumber:Int = Int(arc4random() % 6)
+        var alertController = UIAlertController(title: titleArray[randNumber], message: messageArray[randNumber], preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(alertController, animated: true, completion: nil)
     }
 }
 
