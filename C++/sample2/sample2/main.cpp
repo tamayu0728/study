@@ -10,11 +10,13 @@
 
 //プロトタイプ宣言
 int DelNum(int,int);
-
+const int BUFFFA = 1000;
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    int ans = DelNum(10, 4);
-    printf("%d\n",ans);
+//    int ans = DelNum(10, 4);
+//    printf("%d\n",ans);
+    for (int i=0; i<BUFFFA; i++) {
+        printf("%d\n",i);
+    }
     return 0;
 }
 
