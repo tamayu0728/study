@@ -15,6 +15,17 @@ private:
     int total;
     
 public:
+    //コンストラクタ
+    OrangeBox()
+    {
+        total = 0;
+    }
+    
+    //デストラクタ
+    ~OrangeBox(){
+        printf("みかんオブジェクトの役目終了\n");
+    }
+    
     void Add(int addOrange)
     {
         total += addOrange;
@@ -23,12 +34,8 @@ public:
     {
         total -= deleteOrange;
         if(total < 0){
-            Empty();
+            OrangeBox();
         }
-    }
-    void Empty()
-    {
-        total = 0;
     }
     
     int GetTotal()
@@ -39,7 +46,6 @@ public:
 
 int main(int argc, const char * argv[]) {
     OrangeBox myOrangeBox;
-    myOrangeBox.Empty();
     myOrangeBox.Add(10);
     myOrangeBox.Delete(3);
     printf("箱の中のみかん：%d個\n",myOrangeBox.GetTotal());
